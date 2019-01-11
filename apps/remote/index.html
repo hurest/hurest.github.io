@@ -1,1 +1,76 @@
-remote
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>슬라이드</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/black-tie/jquery-ui.css">
+    <link rel="stylesheet" href="./css/style.main.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+    <script src="./js/vendor/qrcode.min.js"></script>
+    <script src="./js/init.main.js"></script>
+    <script src="./js/app.main.js?v=1"></script>
+</head>
+
+<body>
+    <div id="dialog-modal" title="Basic modal dialog">
+        <p>Adding the modal overlay screen makes the dialog look more prominent because it dims out the page content.</p>
+    </div>
+    <div id="warning_msg_wrap" align="center">
+        <div id="warning_msg">
+
+        </div>
+    </div>
+    <div id="main">
+        <div style="position:absolute;left:0px;top:0px;cursor:pointer">
+            <div id="qrcode"></div>
+        </div>
+        <div id="gallery">
+
+            <div id="slides">
+                <div class="slide"><img src="images/sample_slides/main.png" width="1000" alt="side" /></div>
+                <div class="slide"><img src="images/sample_slides/K-35.jpg" width="1000" alt="side" /></div>
+                <div class="slide"><img src="images/sample_slides/K-36.jpg" width="1000" alt="side" /></div>
+                <div class="slide"><img src="images/sample_slides/K-38.jpg" width="1000" alt="side" /></div>
+                <div class="slide"><img src="images/sample_slides/K-37.jpg" width="1000" alt="side" /></div>
+                <div class="slide"><img src="images/sample_slides/K-41.jpg" width="1000" alt="side" /></div>
+                <div class="slide"><img src="images/sample_slides/K-42.jpg" width="1000" alt="side" /></div>
+                <div class="slide"><img src="images/sample_slides/K-43.jpg" width="1000" alt="side" /></div>
+                <div class="slide"><img src="images/sample_slides/K-53.jpg" width="1000" alt="side" /></div>
+                <div class="slide"><img src="images/sample_slides/K-54.jpg" width="1000" alt="side" /></div>
+            </div>
+
+            <div id="menu" style="display:none">
+
+                <ul>
+                    <li class="fbar">&nbsp;</li>
+                    <li class="menuItem"><a href=""></a></li>
+                    <li class="menuItem"><a href=""></a></li>
+                    <li class="menuItem"><a href=""></a></li>
+                    <li class="menuItem"><a href=""></a></li>
+                    <li class="menuItem"><a href=""></a></li>
+                    <li class="menuItem"><a href=""></a></li>
+                    <li class="menuItem"><a href=""></a></li>
+                    <li class="menuItem"><a href=""></a></li>
+                    <li class="menuItem"><a href=""></a></li>
+                    <li class="menuItem"><a href=""></a></li>
+                </ul>
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <div id="no_qrcode" align="center">
+        QR코드 리더앱이 없을 경우<br>
+        스마트폰으로
+        <h4 id="urlText">http://hurest.com/slide/control.php?key=</h4>
+        로 접속하세요.
+    </div>
+</body>
+
+</html>

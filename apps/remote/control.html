@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>슬라이드</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="./css/style.main.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+    <script src="./js/init.main.js"></script>
+    <script src="./js/app.control.js?v=1"></script>
+</head>
+
+<body ondragstart = "return false" onselectstart = "return false">
+        <div data-role="page" id="mainPage">
+            <div data-role="header" id="header">
+                <h1>슬라이더</h1>
+            </div>
+            <div data-role="content">
+                <div id="swipeArea" style="height:200px;width:100%;border:1px solid #ccc;background:#fff;border-radius:8px" align="center">
+                    <div style="color:#ccc;position:relative;top:60px">
+                        <br />손가락을 이용하여<br>
+                        여기를 좌,우으로 문질러 주세요<br /><br />
+                    </div>
+                </div>
+                <a data-role="button" id="showBtn">설명보기</a>
+                <a data-role="button" id="closeBtn" data-theme="e" style="display:none">설명닫기</a>
+            </div>
+        </div>
+        </body>
+
+</html>
