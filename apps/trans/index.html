@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>애교 변환기</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="./js/hangul.js"></script>
+	<script src="./js/app.js"></script>
+	<style>
+		html, body {
+			height: 100%;
+		}
+		#alert {
+			position: fixed;
+			bottom: 0px;
+			box-sizing: border-box;
+			padding: 20px;
+			display: none;
+						width: 100%;
+		}
+		#alert > div {
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	
+	<br>
+	<div class="container">
+	<form>
+	<div class="form-group">
+	<h3>
+		<label for="exampleFormControlTextarea1">애교 변환기</label>
+	</h3>
+    
+    <textarea class="form-control" id="beforeMessage" rows="5"></textarea>
+    <hr>
+    <textarea class="form-control" id="afterMessage" rows="5" readonly="readonly"></textarea>
+  </div>
+	</form>
+	</div>
+	<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <button type="button" class="btn btn-primary btn-lg btn-block" id="transBtn">변환하기</button>
+    </div>
+    
+  </div>
+
+</div>
+<div id="alert">
+	<div class="alert alert-primary" role="alert">
+	  복따 됨~
+	</div>
+</div>
+</body>
+</html>
