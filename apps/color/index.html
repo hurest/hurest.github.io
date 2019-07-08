@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/colorNameKor.js"></script>
+    <script src="js/vendor/ionic.bundle.min.js"></script>
+    <script src="js/vendor/color-thief.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter" class="platform-ios platform-cordova platform-webview">
+
+    <ion-pane ng-controller="mainCtrl">
+      <ion-header-bar class="bar-stable" id="body">
+        <h1 class="title"><span id="colorBlock">컬러리더</span></h1>
+      </ion-header-bar>
+      <ion-content>
+        <img id="pictureImg" width="100%" ng-click="alert()" />
+      </ion-content>
+      <ion-footer-bar class="bar-stable">
+        <button class="button button-block button-positive" style="margin: 0px" onclick="document.getElementById('imgFile').click()">
+          이미지 선택
+          <input type="file" id="imgFile" onchange="angular.element(this).scope().capture(this)" style="display: none;">
+        </button>
+      </ion-footer-bar>
+    </ion-pane>
+
+  </body>
+</html>
