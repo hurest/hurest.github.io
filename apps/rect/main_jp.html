@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<script src="function.js"></script>
+<script src="jquery.js"></script>
+<title>Untitled Document</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body bgcolor="#69370f">
+	<div id="input_page"><!-- 입력 페이지 -->
+<!--	
+		<div class="background">
+			<img src="images/background.png" class="bg_img" />
+		</div> 
+-->
+		<div class="header"><!-- 상단 -->
+			<p align="center" class="title_img"><img src="images/title.png" /></p>
+			<img src="images/question_icon.png" class="title_right_btn" onclick="help_open();" />
+		</div>
+		
+		<div class="content" align="center"><!-- 내용 -->
+			<br />
+			<a href="javascript:select_country();"><img src="images/jp.png" id="country_img" /></a>
+			<table>
+				<tr>			
+					<td colspan="2">
+						<table>
+							<tr>
+								<td width="30px"><a class="img_btn" id="radio_1" onclick="radio_btn(1);"></a></td><td width="30px" class="txt_color2">mm</td>
+								<td width="30px"><a class="img_btn" id="radio_2" onclick="radio_btn(2);"></a></td><td width="30px" class="txt_color2">cm</td>
+								<td width="30px"><a class="img_btn" id="radio_3" onclick="radio_btn(3);"></a></td><td width="30px" class="txt_color2">inch</td>
+								<td width="30px"><a class="img_btn" id="radio_4" onclick="radio_btn(4);"></a></td><td width="30px" class="txt_color2">pixel</td>
+							</tr>
+						</table>				
+					</td>
+				</tr>
+				<tr><td height="35px">
+						<b class="txt_color2" style="font-size:13px">パネル幅</b>  
+				</td><td>
+						<div class="input"><input type="number" id="wid" class="input_number" /></div>
+				</td></tr>
+				<tr><td height="35px">
+						<b class="txt_color2" style="font-size:13px">パネル高く</b>  
+				</td><td>
+						<div class="input"><input type="number" id="hei" class="input_number" /></div>
+				</td></tr>
+				<tr><td height="35px">
+						<b class="txt_color2" style="font-size:13px">四角幅</b> 
+				</td><td>
+						<div class="input"><input type="number" id="sml_w" class="input_number" /></div>
+				</td></tr>
+				<tr><td height="35px">
+						<b class="txt_color2" style="font-size:13px">四角高く</b> 
+				</td><td>
+						<div class="input"><input type="number" id="sml_h" class="input_number" /></div>
+				</td></tr>
+				<tr height="25px"></tr>
+				<tr>
+					<td colspan="2" height="55px">
+						<span class="input_btn_text" onclick="finish(2);"><b>送 信</b></span>			
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" height="55px">
+						<span class="input_btn_text" onclick="input_reset();"><b>リセット</b></span>	
+					</td>
+				</tr>
+			</table>
+		</div>
+				
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div id="draw_page"><!-- 사각이 그려지는 페이지 -->
+<!--	
+		<div class="background">
+			<img src="images/background.png" class="bg_img" />
+		</div>
+-->
+		<div class="header"><!-- 상단 -->
+			<img src="images/back_icon.png" class="title_left_btn" onclick="location.reload();" />
+			<p align="center" class="title_img"><img src="images/title.png" /></p>
+			<img src="images/setting_icon.png" class="title_right_btn" onclick="setting_open();" />
+		</div>
+		
+		<div class="content" align="center"><!-- 내용 -->
+			<div id="result"></div>
+			<br />
+			<table><tr>
+				<td width="150">
+					<span class="draw_btn_text" onclick="refinish(2);"><b>また描く</b></span>
+					
+				</td>
+				<td width="150">
+					<span class="draw_btn_text" onclick="PDF_open();"><b>P D F 変換</b></span>
+				</td>
+			</tr></table>
+		</div>
+		<br /><br /><br />
+		
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div id="setting_page"><!-- 설정화면 나오는  페이지 -->
+<!--
+		<div class="background">
+			<img src="images/background.png" class="bg_img" />
+		</div>
+-->
+		<div class="header"><!-- 상단 -->
+			<img src="images/back_icon.png" class="title_left_btn" onclick="setting_back();" />
+			<p align="center" class="title_img"><img src="images/title.png" /></p>
+		</div>
+		
+		<div class="content" align="center"><!-- 내용 -->
+			<br />
+            <a style="position:absolute; left:13px; font-weight:bold" align="left">パネル 背景 色 :</a><br />
+            <div class="p_f_icon" id="p_f_icon1"></div> 
+            <div class="p_f_icon" id="p_f_icon2"></div> 
+            <div class="p_f_icon" id="p_f_icon3"></div> 
+            <div class="p_f_icon" id="p_f_icon4"></div> 
+            <div class="p_f_icon" id="p_f_icon5"></div> 
+            <div class="p_f_icon" id="p_f_icon6"></div> 
+            <div class="p_f_icon" id="p_f_icon7"></div> 
+            <br /><br />
+            <a style="position:absolute; left:13px; font-weight:bold" align="left">パネル 線 色 :</a><br />
+            <div class="p_l_icon" id="p_l_icon1"></div> 
+            <div class="p_l_icon" id="p_l_icon2"></div> 
+            <div class="p_l_icon" id="p_l_icon3"></div> 
+            <div class="p_l_icon" id="p_l_icon4"></div> 
+            <div class="p_l_icon" id="p_l_icon5"></div> 
+            <div class="p_l_icon" id="p_l_icon6"></div> 
+            <div class="p_l_icon" id="p_l_icon7"></div> 
+            <br /><br />
+            <a style="position:absolute; left:13px; font-weight:bold" align="left">四角 背景 色 :</a><br />
+            <div class="r_f_icon" id="r_f_icon1"></div> 
+            <div class="r_f_icon" id="r_f_icon2"></div> 
+            <div class="r_f_icon" id="r_f_icon3"></div> 
+            <div class="r_f_icon" id="r_f_icon4"></div> 
+            <div class="r_f_icon" id="r_f_icon5"></div> 
+            <div class="r_f_icon" id="r_f_icon6"></div> 
+            <div class="r_f_icon" id="r_f_icon7"></div> 
+            <br /><br />
+            <a style="position:absolute; left:13px; font-weight:bold" align="left">四角 線 色 :</a><br />
+            <div class="r_l_icon" id="r_l_icon1"></div> 
+            <div class="r_l_icon" id="r_l_icon2"></div> 
+            <div class="r_l_icon" id="r_l_icon3"></div> 
+            <div class="r_l_icon" id="r_l_icon4"></div> 
+            <div class="r_l_icon" id="r_l_icon5"></div> 
+            <div class="r_l_icon" id="r_l_icon6"></div> 
+            <div class="r_l_icon" id="r_l_icon7"></div> 
+            <br /><br /><br />
+            <table><tr><td height="55px">
+				<span class="input_btn_text" onclick="color_setting();"><b>変 更</b></span>					
+			</td></tr></table>
+        </div>
+		
+		
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div id="help_page"  align="center"><!-- 도움화면 나오는  페이지 -->
+<!--
+		<div class="background">
+			<img src="images/background.png" class="bg_img" />
+		</div>
+-->
+		<div class="header"><!-- 상단 -->
+			<img src="images/back_icon.png" class="title_left_btn" onclick="location.reload();" />
+			<p align="center" class="title_img"><img src="images/title.png" /></p>
+		</div>
+		
+		<div class="content_1" align="left"><!-- 내용 --><br />
+        	<p align="center"><b>使用方法</b></p><br />
+            <p style="margin-left:10px"><b>パネル</b> = 切ろうとする原版</p>
+            <p style="margin-left:10px"><b>四角</b> = 原版の中に入ること</p><br />
+			<p>&nbsp;&nbsp;もし、非効率的な空間の配置で惜しい費用を捨てましたか? 私(わたくし) <b>Smart Rect</b>が　活用空間を最大限残さないように正確な配置で原価低減を実現して上簡単な入力でE-mailですぐ出力できます。驚くべきな空間活用、高いプログラム使わなくてもう現場でもスマートフォンで解決しましょう!</p><br /><br /><br />
+            <p align="center"><img src="images/choseong_ci.png" align="middle"/>&nbsp;&nbsp;<a href="http://www.choseong.com" >http://www.choseong.com</a></p>
+            <p align="center"><img src="images/sing_ci.png" align="middle"/>&nbsp;&nbsp;<a href="http://www.singsinghe.co.kr">http://www.singsinghe.co.kr</a></p>
+            
+		</div>
+		
+		
+		
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div id="PDF_page"><!-- PDF변환 화면이 나오는  페이지 -->
+<!--
+		<div class="background">
+			<img src="images/background.png" class="bg_img" />
+		</div>
+-->
+		<div class="header"><!-- 상단 -->
+			<img src="images/back_icon.png" class="title_left_btn" onclick="PDF_back();" />
+			<p align="center" class="title_img"><img src="images/title.png" /></p>
+		</div>
+		
+		<div class="content" align="center"><!-- 내용 -->
+			<br /><b>PDF 変換</b><br />
+			<a class="txt_color2">もらう電子メールを入力してください : </a><br />
+			<div class="input"><input type="text" id="email" class="input_number" /></div>
+			<br />
+			<span class="input_btn_text" onclick="email_send(2);"><b>送信</b></span>
+			
+		</div>
+		
+		
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div id="alert_window_bg" align="center"></div>
+	<div id="alert_window" align="center">
+		<table><tr><td>
+			<span class="alert_btn_text" id="alert_txt" onclick="window_close();"></span>
+		</td></tr></table>
+	</div>
+    <div id="select_country" align="center">
+    	<table cellpadding="0" cellspacing="0" border="0px" width="320px">
+        	<tr align="center">
+            	<b style="font-size:18px">国家を選択してください.</b>
+            </tr>
+        	<tr height="80px">
+            	<td colspan="2" width="320px" align="center">
+                	<a href="main.html"><input type="image" src="images/kr.png" /></a>
+                </td>
+            </tr>
+            <tr height="80px">
+            	<td width="160px" align="center">
+                	<a href="main_usa.html"><input type="image" src="images/usa2.png" /></a>
+                </td>
+                <td width="160px" align="center">
+                	<a href="main_chn.html"><input type="image" src="images/chn2.png" /></a>
+                </td>
+            </tr>
+            <tr height="80px">
+            	<td colspan="2" width="320px" align="center">
+                	<a href="main_jp.html"><input type="image" src="images/jp2.png" /></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+var radio_arr = new Array(0,1,0,0,0);
+var radio_val = new Array("mm","cm","in","pt");
+var radio_val2 = new Array("mm","cm","inch","pixel");
+
+$(document).ready(function(){
+	for(var i = 1;i<=4;i++){
+		$("#radio_"+i).html("<img src='images/radio_"+radio_arr[i]+".png' />");
+	}
+	
+	radio_btn(1);
+	
+	for(i=1;i<=9;i++){
+		$("#p_f_icon"+i).css({"background":color_pkg[i],"color":color_pkg[i]});
+		$("#p_f_icon"+i).text(color_pkg[i]);
+		$("#p_l_icon"+i).css({"background":color_pkg[i],"color":color_pkg[i]});
+		$("#p_l_icon"+i).text(color_pkg[i]);
+		$("#r_f_icon"+i).css({"background":color_pkg[i],"color":color_pkg[i]});
+		$("#r_f_icon"+i).text(color_pkg[i]);
+		$("#r_l_icon"+i).css({"background":color_pkg[i],"color":color_pkg[i]});
+		$("#r_l_icon"+i).text(color_pkg[i]);
+	}
+	$("#p_f_icon1").css({"border":"solid","border-color":"#000"});
+	$("#p_l_icon1").css({"border":"solid","border-color":"#000"});
+	$("#r_f_icon1").css({"border":"solid","border-color":"#000"});
+	$("#r_l_icon1").css({"border":"solid","border-color":"#000"});
+	
+	for(i=1;i<=9;i++){
+		$("#p_f_icon"+i).click(function (){
+			$(".p_f_icon").css("border","none");
+			$(this).css({"border":"solid","border-color":"#000"});
+			p_f = $(this).text();
+		});
+		$("#p_l_icon"+i).click(function (){
+			$(".p_l_icon").css("border","none");
+			$(this).css({"border":"solid","border-color":"#000"});
+			p_l = $(this).text();
+		});
+		$("#r_f_icon"+i).click(function (){
+			$(".r_f_icon").css("border","none");
+			$(this).css({"border":"solid","border-color":"#000"});
+			r_f = $(this).text();
+		});
+		$("#r_l_icon"+i).click(function (){
+			$(".r_l_icon").css("border","none");
+			$(this).css({"border":"solid","border-color":"#000"});
+			r_l = $(this).text();
+		});
+	}
+
+});
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+*{font-size:15px;margin:0px;padding:0px; color:#3a1f08; font-family:Arial, Helvetica, sans-serif}
+
+body{background:url(images/background2.png)}
+.bg_img{width:100%;height:100%;}
+.background{z-index:1; position:absolute; width:100%;}
+#body{z-index:2}
+#main_01{z-index:2; position:relative; padding-top:10px}
+#main_02{z-index:2; position:relative; padding-top:10px}
+#roading{z-index:2;	position:relative; padding-top:10px}
+
+#input_page{z-index:1;}
+#draw_page{display:none}
+#setting_page{display:none}
+#help_page{display:none;}
+#PDF_page{display:none}
+.header{z-index:2; position:relative; width:100%; height:50px; background:url(images/title_bg.png)}
+.content{z-index:2; position:relative; width:100%}
+.content_1{z-index:2; position:relative; width:95%}
+.footer{z-index:2; position:relative; width:100%; height:24px; background:url(images/footer_bg.png)}
+
+#draw_back_btn{position:absolute}
+#setting_back_btn{position:absolute}
+#setting_open_btn{position:absolute; right:0px; top:0px}
+
+#alert_window_bg{z-index:3; display:none; background:#999999; opacity:0.6; width:100%; height:100%; position:absolute; top:0px}
+#alert_window{z-index:4; display:none;position:absolute; top:200px; width:100%}
+#result{width:302px;}
+#select_country{z-index:4; display:none; position:absolute; top:50px}
+
+.title_img{padding-top:5px}
+.title_left_btn{position:absolute;left:0px;top:0px;padding:10px}
+.title_right_btn{position:absolute;right:0px;top:0px;padding:10px}
+#country_img{position:absolute; right:0px;	top:0px; padding:13px}
+.input_btn_text{display:block; color:#3a1f08; height:32px; width:278px; text-align:center; padding-top:12px; background:url(images/input_send_btn.png)}
+.alert_btn_text{display:block; color:#3a1f08; height:32px; width:278px; text-align:center; padding-top:12px; background:url(images/input_send_btn.png)}
+.draw_btn_text{position:absolute; display:block; color:#3a1f08; height:33px; width:150px; text-align:center; padding-top:12px;  background:url(images/draw_btn.png)}
+
+.input_number{height:17px;background-color:#a48267;border:0px;font-size:11pt;letter-spacing:-1px;width:200px;color:#ffeaa0}
+.input{border:0px;width:205px;height:24px;background:url(images/input_bg.png);padding-left:5px;padding-top:4px;}
+.txt_color{color:#703b0f}
+.txt_color2{color:#3a1f08}
+
+.p_f_icon{width:20px; height:20px; display:inline-block; margin-right:9px ;font-size:1px; padding:4px}
+.p_l_icon{width:20px; height:20px; display:inline-block; margin-right:9px ;font-size:1px; padding:4px}
+.r_f_icon{width:20px; height:20px; display:inline-block; margin-right:9px ;font-size:1px; padding:4px}
+.r_l_icon{width:20px; height:20px; display:inline-block; margin-right:9px ;font-size:1px; padding:4px}
