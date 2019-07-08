@@ -1,0 +1,12 @@
+#tp01resultPanel > div > div > div {
+    display: flex;
+}
+#tp01resultPanel > div > div > div > div[id^="ext-image-"] {
+    flex: 1;
+}
+#tp01resultPanel > div > div > div > div[id^="ext-label-"] {
+    flex: 5;
+}
+#tp01resultPanel > div > div > div > div[id^="ext-label-"] > div {
+    margin-top: 9px;
+}
