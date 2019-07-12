@@ -1,3 +1,7 @@
+# 기술 경력
+
+http://bit.ly/2LhIJCu
+
 # 사용한 언어, 프레임워크, 라이브러리 및 환경
 javascript, typescript, php, delphi, tvjs, tvml
 
