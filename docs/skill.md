@@ -81,6 +81,9 @@ karma 를 이용하여 jasmine 으로 서비스 단위 테스트 진행
 
 protractor 를 이용하여 데스크탑 사이트의 90% 의 기능을 e2e 테스트 진행
 
+### 데스크탑 사이트 스크린샷
+![스크린샷](./images/myrealplan.png)
+
 http://www.myrealplan.co.kr
 
 # 2018.01 - 2019.06 : 베이크썬, 맘쓰
@@ -92,6 +95,9 @@ Typescript 기반의 angular 를 이용하여 SPA 앱 '맘쓰' 개발
 
 fabric.js 를 이용하여 디자인된 성장카드를 수정하여 주문하는 서비스를 개발
 
+### 맘쓰 에디터 캡쳐
+
+![스크린샷](./images/momth.gif)
 http://mobile.momth.net
 
 관리자 프론트엔드는 angular5, angular material, sass 로 개발
