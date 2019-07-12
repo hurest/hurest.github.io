@@ -1,5 +1,6 @@
 # 2016.06 - 2011.12 : 초성 웹 에이전시
-## 개발 단독 진행
+
+### 개발 단독 진행
 
 javascript 학습을 위해 jQuery 1.0 분석
 
@@ -12,12 +13,14 @@ Phonegap, jQuery mobile, php, apache 기반의 웹앱 제작
 https://hurest.github.io/apps/rect/
 
 # 2011.10 - 2012.01 : 엘마정보
-## UI 및 개발 단독 진행
+
+### UI 및 개발 단독 진행
 
 구글 지도 api 를 활용하여 지도 위 감정평가된 정보를 뿌려주는 웹 페이지 개발
 
 # 2012.01 - 2014.01 : 휴레스트
-## 기획, 디자인 및 개발 단독 진행
+
+### 기획, 디자인 및 개발 단독 진행
 
 require.js, underscore.js, jquery mobile, less 을 이용한 동네 커뮤니티 서비스를 SPA로 개발
 
@@ -41,9 +44,10 @@ http://www.gjdream.com/v2/news/view.html?news_type=203&uid=449547
 
 
 # 2014.03 - 2014.11 : 엘마정보
-## UI 및 개발 단독 진행
 
-델파이로 회계프로그램 개발
+### UI 및 개발 단독 진행
+
+델파이로 회계프로그램 개발 (mssql 사용)
 
 SPA로 게시판 프론트엔드 웹 개발 후 webview 에 연결
 
@@ -62,7 +66,8 @@ pdf.js 를 이용하여 pdf 로 된 문제집을 업로드 한 뒤,
 아마존 FireTV 용 OTT 서비스 웹앱 개발
 
 # 2016.09 - 2017.12 : 아이지넷
-## 구버전 모바일 및 데스크탑 프론트엔드 단독 개발
+
+### 구버전 모바일 및 데스크탑 프론트엔드 단독 개발
 
 angular.js + ionic 을 기반으로 마이리얼플랜 모바일 사이트 개발
 
@@ -78,8 +83,9 @@ protractor 를 이용하여 데스크탑 사이트의 90% 의 기능을 e2e 테�
 
 http://www.myrealplan.co.kr
 
-#2018.01 - 2019.06 : 베이크썬, 맘쓰
-## 개발 단독 진행
+# 2018.01 - 2019.06 : 베이크썬, 맘쓰
+
+### 개발 단독 진행
 Typescript 기반의 angular 를 이용하여 SPA 앱 '맘쓰' 개발
 
 모바일 프론트엔드는 angular5, ionic3, fabric.js 를 사용
@@ -121,7 +127,7 @@ phonegap, cordova, electron, native script
 
 apache, nginx
 
-mysql, mongodb, redis
+mysql, mssql, mongodb, redis
 
 grunt, gulp.js, karma, webpack, jasmine, protractor
 
