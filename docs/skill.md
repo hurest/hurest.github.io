@@ -1,6 +1,8 @@
 # 기술 경력
 
-http://bit.ly/2LhIJCu
+웹에서 보기1 : http://bit.ly/2LhIJCu
+
+웹에서 보기2 : https://github.com/hurest/hurest.github.io/blob/master/docs/skill.md
 
 # 사용한 언어, 프레임워크, 라이브러리 및 환경
 javascript, typescript, php, delphi, tvjs, tvml
@@ -19,7 +21,7 @@ jquery, underscore.js, require.js, angular.js, angular
 
 pdf.js, fabric.js, canvas
 
-SPA, ionic, angular material, jquery mobile, sencha touch
+SPA, backbone.js ionic, angular material, jquery mobile, sencha touch
 
 aws, firebase
 
@@ -97,7 +99,7 @@ SPA로 게시판 프론트엔드 웹 개발 후 webview 에 연결
 
 ### 기획, 디자인 및 개발 단독 진행
 
-require.js, underscore.js, jquery mobile, less 을 이용한 동네 커뮤니티 서비스를 SPA로 개발
+require.js, backbone.js, underscore.js, jquery mobile, less 을 이용한 동네 커뮤니티 서비스를 SPA로 개발
 
 백엔드는 mongodb, redis, mongoose.js, express.js 를 이용하여 api 서버 개발
 
