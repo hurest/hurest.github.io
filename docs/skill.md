@@ -1,3 +1,4 @@
+
 # 기술 경력
 
 웹에서 보기1 : http://bit.ly/2LhIJCu
@@ -30,6 +31,8 @@ aws, firebase
 
 https://hurest.github.io/apps/remote/
 
+<div class="page"/>
+
 # 2018.01 - 2019.06 : 베이크썬, 맘쓰
 
 Typescript 기반의 angular 를 이용하여 SPA 앱 '맘쓰' 개발
@@ -51,6 +54,8 @@ http://mobile.momth.com
 swagger ui 를 세팅하여 api 만 별도로 조회 가능하게 세팅 후 aws 에 배포
 로컬 개발환경을 도커를 이용하여 세팅
 
+<div class="page"/> 
+
 # 2016.09 - 2017.12 : 아이지넷
 
 angular.js + ionic 을 기반으로 마이리얼플랜 모바일 사이트 개발
@@ -69,6 +74,8 @@ protractor 를 이용하여 데스크탑 사이트의 90% 의 기능을 e2e 테�
 ![스크린샷](./images/myrealplan.png)
 
 http://www.myrealplan.co.kr
+
+<div class="page"/>
 
 # 2015.07 - 2016.04 : KORTVGLOBAL
 
@@ -90,6 +97,8 @@ pdf.js 를 이용하여 pdf 로 된 문제집을 업로드 한 뒤,
 
 SPA로 게시판 프론트엔드 웹 개발 후 webview 에 연결
 
+<div class="page"/>
+
 # 2012.01 - 2014.01 : 휴레스트
 
 require.js, backbone.js, underscore.js, jquery mobile, less 을 이용한 동네 커뮤니티 서비스를 SPA로 개발
@@ -98,15 +107,17 @@ require.js, backbone.js, underscore.js, jquery mobile, less 을 이용한 동네
 
 grunt 를 이용하여 빌드 후 phonegap 으로 패키징하여 각각 스토어에 배포
 
-http://www.gjdream.com/v2/news/view.html?news_type=203&uid=449547
+<img src="./images/hurest_screenshot.png" width="450">
 
-### 앱 스크린 샷
-
-![스크린샷](./images/hurest_screenshot.png)
+<div class="page"/>
 
 ### 오프라인 마케팅용 인쇄물 (직접 디자인 함)
 ![마케팅관련1](./images/hurest_marketing1.png)
 ![마케팅관련2](./images/hurest_marketing2.png)
+
+관련 기사 : http://www.gjdream.com/v2/news/view.html?news_type=203&uid=449547
+
+<div class="page"/>
 
 # 2011.10 - 2012.01 : 엘마정보
 
