@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>게임 정산 계산</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function calc() {
+            var startPoint = 10000;
+            var total = document.getElementById('total').value;
+            var member = document.getElementById('member').value;
+            var point = document.getElementById('point').value;
+
+            var pay = total / member;
+            var rate = pay / startPoint
+            var result = pay + (startPoint - point) * rate;
+
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>게임 정산 계산</h1>
+        <div style="display: block; padding: 5px;">
+            <input type="number" id="total" placeholder="정산금액">
+        </div>
+        <div style="display: block; padding: 5px;">
+            <input type="number" id="member" placeholder="인원수">
+        </div>
+        <div style="display: block; padding: 5px;">
+            <input type="number" id="point" placeholder="딴금액">
+        </div>
+        <button onclick="calc()">계산</button>
+
+        <div>
+            <h2>결과 : <span id="result"></span></h2>
+        </div>
+        
+    </div>
+</body>
+</html>
