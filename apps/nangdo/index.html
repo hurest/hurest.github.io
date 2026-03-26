@@ -1,159 +1,647 @@
 <!DOCTYPE html>
+<html lang="ko">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=yes, maximum-scale=5">
     <meta property="og:image" content="./images/thumbnail.png">
     <meta property="og:description" content="낭도에서의 생활.">
     <title>길환네 비디오</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         html, body {
-            padding: 0px;
-            margin: 0px;
+            padding: 0;
+            margin: 0;
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f0ebe3;
+            color: #2c2c2c;
         }
-        .body-inner {
-            padding: 10px;
+
+        /* ── Header ── */
+        .hero {
+            background: linear-gradient(135deg, #1a3c5e 0%, #2d6a9f 50%, #4a90c4 100%);
+            padding: 48px 20px 40px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        .body-inner > div {
-            margin-bottom: 30px;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 60%);
+            pointer-events: none;
         }
-        h1 {
-            
+
+        .hero-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 8px;
+            letter-spacing: -0.5px;
+            position: relative;
         }
-        h2 {
-            font-size: 16px;
-            max-width: 640px;
-            margin: 10px auto;
-            text-align: left;
+
+        .hero-sub {
+            font-size: 14px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.75);
+            margin: 0;
+            position: relative;
         }
-        iframe {
+
+        .hero-count {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 4px 14px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.85);
+            backdrop-filter: blur(4px);
+            position: relative;
+        }
+
+        /* ── Content ── */
+        .content {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 20px 16px 40px;
+        }
+
+        /* ── Year Divider ── */
+        .year-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: #8a7e72;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 32px 0 16px;
+            padding-left: 4px;
+        }
+
+        .year-label:first-child {
+            margin-top: 8px;
+        }
+
+        /* ── Video Grid ── */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        /* ── Card ── */
+        .card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .card-video {
+            position: relative;
             width: 100%;
-            height: 50vw;
-            min-height: 220px;
-            max-width: 640px;
-            max-height: 480px;
+            /* 16:9 + Google Drive 하단 컨트롤바(화살표·전체화면 버튼) 공간 확보 */
+            padding-top: 72%;
+            background: #1a1a1a;
+            border-radius: 14px 14px 0 0;
+        }
+
+        .card-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 14px 14px 0 0;
+        }
+
+        .card-info {
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-date {
+            flex-shrink: 0;
+            font-size: 12px;
+            font-weight: 400;
+            color: #999;
+            min-width: 62px;
+        }
+
+        .card-badge {
+            flex-shrink: 0;
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            color: #fff;
+            background: #5a8bb0;
+        }
+
+        .card-badge.kbs { background: #3b7dd8; }
+        .card-badge.mbc { background: #e0583e; }
+        .card-badge.sbs { background: #1b8cd1; }
+        .card-badge.ebs { background: #4aa564; }
+        .card-badge.mbn { background: #d48c2e; }
+        .card-badge.channel-a { background: #8b5ec0; }
+        .card-badge.kbc { background: #3da0a0; }
+        .card-badge.etc { background: #888; }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 400;
+            color: #333;
+            line-height: 1.4;
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            text-align: center;
+            padding: 24px 16px 36px;
+            font-size: 12px;
+            color: #b0a89e;
+        }
+
+        /* ── Scroll to Top ── */
+        .scroll-top {
+            position: fixed;
+            bottom: 24px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #1a3c5e;
+            color: #fff;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* ── Desktop (2 columns) ── */
+        @media (min-width: 640px) {
+            .hero {
+                padding: 56px 24px 48px;
+            }
+
+            .hero-title {
+                font-size: 34px;
+            }
+
+            .hero-sub {
+                font-size: 15px;
+            }
+
+            .content {
+                padding: 28px 24px 48px;
+            }
+
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .year-label {
+                margin: 40px 0 18px;
+                font-size: 14px;
+            }
+
+            .card-info {
+                padding: 12px 14px;
+            }
+
+            .card-title {
+                font-size: 13px;
+            }
+
+            .card-date {
+                font-size: 11px;
+            }
+        }
+
+        /* ── Wide Desktop ── */
+        @media (min-width: 960px) {
+            .content {
+                padding: 36px 32px 60px;
+            }
+
+            .video-grid {
+                gap: 24px;
+            }
+        }
+
+        /* ── Lazy load placeholder ── */
+        .card-video.pending {
+            background: #e8e3db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-video.pending::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.08);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23999'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 24px;
         }
     </style>
 </head>
 
 <body>
-    <div class="body-inner">
-        <h1>길환네 비디오</h1>
-        <div>
-            <h2>[26.02.27] MBN : 천기누설</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1o14tD-l9fhqSZRk3hch96rkDic6t0pNm/preview"></iframe>
-        </div>
-        <div>
-            <h2>[25.08.31] 큰아들 결혼식 축사</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1rsm3EzkXceOx8byDmMQaDgqwJUULQon5/preview"></iframe>
-        </div>
-        <div>
-            <h2>[25.03.14] KBC : 도시락(樂)</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1ltUfnpvQrN6SsvzfoXdOMe8g3G9gLRUE/preview"></iframe>
-        </div>
-        <div>
-            <h2>[25.03.10] EBS : 고향민국 - 여수</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1eN7YGHSCBpD-NUud7I3f1Jj22Iaphl4v/preview"></iframe>
-        </div>
-        <div>
-            <h2>[25.03.06] MBC : 오늘N</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1foWsWrq9aPxkiUv9YOeo5GfEG-iNBrBR/preview"></iframe>
+
+    <!-- Header -->
+    <header class="hero">
+        <h1 class="hero-title">길환네 비디오</h1>
+        <p class="hero-sub">낭도에서의 생활</p>
+        <span class="hero-count">27편의 영상</span>
+    </header>
+
+    <!-- Content -->
+    <main class="content">
+
+        <!-- 2026 -->
+        <div class="year-label">2026</div>
+        <div class="video-grid">
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1o14tD-l9fhqSZRk3hch96rkDic6t0pNm/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2026.02.27</span>
+                    <span class="card-badge mbn">MBN</span>
+                    <p class="card-title">천기누설</p>
+                </div>
+            </article>
         </div>
 
-        <div>
-            <h2>[24.08.28] MBC : 섬마을여행사 - 낭도</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1p85fbx5NIhMNK4_vwIeH8-lx6Q43I-PC/preview"></iframe>
+        <!-- 2025 -->
+        <div class="year-label">2025</div>
+        <div class="video-grid">
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1rsm3EzkXceOx8byDmMQaDgqwJUULQon5/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2025.08.31</span>
+                    <span class="card-badge etc">FAMILY</span>
+                    <p class="card-title">큰아들 결혼식 축사</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1ltUfnpvQrN6SsvzfoXdOMe8g3G9gLRUE/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2025.03.14</span>
+                    <span class="card-badge kbc">KBC</span>
+                    <p class="card-title">도시락(樂)</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1eN7YGHSCBpD-NUud7I3f1Jj22Iaphl4v/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2025.03.10</span>
+                    <span class="card-badge ebs">EBS</span>
+                    <p class="card-title">고향민국 - 여수</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1foWsWrq9aPxkiUv9YOeo5GfEG-iNBrBR/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2025.03.06</span>
+                    <span class="card-badge mbc">MBC</span>
+                    <p class="card-title">오늘N</p>
+                </div>
+            </article>
         </div>
-        <div>
-            <h2>[24.05.06] KBS1TV : 6시내고향 - 섬섬옥수(전남낭도)</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1i17r3zXJizIyHXsAJC6gfxicPR_rRYB9/preview"></iframe>
+
+        <!-- 2024 -->
+        <div class="year-label">2024</div>
+        <div class="video-grid">
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1p85fbx5NIhMNK4_vwIeH8-lx6Q43I-PC/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2024.08.28</span>
+                    <span class="card-badge mbc">MBC</span>
+                    <p class="card-title">섬마을여행사 - 낭도</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1i17r3zXJizIyHXsAJC6gfxicPR_rRYB9/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2024.05.06</span>
+                    <span class="card-badge kbs">KBS1TV</span>
+                    <p class="card-title">6시내고향 - 섬섬옥수(전남낭도)</p>
+                </div>
+            </article>
         </div>
-        <div>
-            <h2>[22.10.11] 채널A 고두심이 좋아서 - 낭도편</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1zKEULDm697ZVWeUSYVE1d-8_ge9A0rP8/preview"></iframe>
+
+        <!-- 2022 -->
+        <div class="year-label">2022</div>
+        <div class="video-grid">
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1zKEULDm697ZVWeUSYVE1d-8_ge9A0rP8/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2022.10.11</span>
+                    <span class="card-badge channel-a">채널A</span>
+                    <p class="card-title">고두심이 좋아서 - 낭도편</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1RhqUUhG6GCEwakaZkB0raoNjrmeyVKYA/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2022.02.11</span>
+                    <span class="card-badge kbs">KBS</span>
+                    <p class="card-title">인간극장 : 길환씨, 낭도와 바람났네 - 5부</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/11croUnOkE7Mh8wVoypEwkl9_nLpZP7p7/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2022.02.10</span>
+                    <span class="card-badge kbs">KBS</span>
+                    <p class="card-title">인간극장 : 길환씨, 낭도와 바람났네 - 4부</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1mLpOKTWb-3JNWlFjpufLm09EazbEu10A/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2022.02.09</span>
+                    <span class="card-badge kbs">KBS</span>
+                    <p class="card-title">인간극장 : 길환씨, 낭도와 바람났네 - 3부</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1rsrO9gjKJfAz5Cwnw0Klk7h62aQTrL_J/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2022.02.08</span>
+                    <span class="card-badge kbs">KBS</span>
+                    <p class="card-title">인간극장 : 길환씨, 낭도와 바람났네 - 2부</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1mbM6SqmfcVf3Vh770qs_lVz4guRnyRH2/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2022.02.07</span>
+                    <span class="card-badge kbs">KBS</span>
+                    <p class="card-title">인간극장 : 길환씨, 낭도와 바람났네 - 1부</p>
+                </div>
+            </article>
         </div>
-        <div>
-            <h2>[22.02.11] KBSTV 인간극장 : 길환씨, 낭도와 바람났네 - 5부</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1RhqUUhG6GCEwakaZkB0raoNjrmeyVKYA/preview"></iframe>
+
+        <!-- 2021 -->
+        <div class="year-label">2021</div>
+        <div class="video-grid">
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1HDxvZtuSO9wa2yjQ_2H9wLmKed2C2M-I/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2021.10.02</span>
+                    <span class="card-badge mbc">목포MBC</span>
+                    <p class="card-title">어영차 바다야</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1He4PNfWWzIHRG6yIfbJYOGOtKkKZ_BBQ/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2021.04.16</span>
+                    <span class="card-badge mbn">MBN</span>
+                    <p class="card-title">생생정보마당</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1VQiH6YXbBsc2_5kbrMX0gt8lKW2J-Zi3/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2021.03.03</span>
+                    <span class="card-badge kbs">KBS</span>
+                    <p class="card-title">생생정보 : 부부별곡</p>
+                </div>
+            </article>
         </div>
-        <div>
-            <h2>[22.02.10] KBSTV 인간극장 : 길환씨, 낭도와 바람났네 - 4부</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/11croUnOkE7Mh8wVoypEwkl9_nLpZP7p7/preview"></iframe>
+
+        <!-- 2020 -->
+        <div class="year-label">2020</div>
+        <div class="video-grid">
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/14mp_XsXzh2ldkqeCaemMB-neHqaKHUI2/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2020.10.24</span>
+                    <span class="card-badge mbc">MBC</span>
+                    <p class="card-title">어영차 바다야</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1IEW3-nKu0m0G2rKxk2vARDL5lmrKPars/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2020.08.10</span>
+                    <span class="card-badge kbs">KBS2TV</span>
+                    <p class="card-title">생생정보 : 숨겨진 비경 낭도</p>
+                </div>
+            </article>
         </div>
-        <div>
-            <h2>[22.02.09] KBSTV 인간극장 : 길환씨, 낭도와 바람났네 - 3부</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1mLpOKTWb-3JNWlFjpufLm09EazbEu10A/preview"></iframe>
+
+        <!-- 2019 -->
+        <div class="year-label">2019</div>
+        <div class="video-grid">
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1RNU_YirQseie91rp1YbLKe-T_NCCMPM-/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2019.07.30</span>
+                    <span class="card-badge kbs">KBS1TV</span>
+                    <p class="card-title">6시내고향 : 인생은행복해</p>
+                </div>
+            </article>
         </div>
-        <div>
-            <h2>[22.02.08] KBSTV 인간극장 : 길환씨, 낭도와 바람났네 - 2부</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1rsrO9gjKJfAz5Cwnw0Klk7h62aQTrL_J/preview"></iframe>
+
+        <!-- 2018 -->
+        <div class="year-label">2018</div>
+        <div class="video-grid">
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1T-bvWTmhzKFiae70MQbpMaMFmGVLtdUr/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2018.12.05</span>
+                    <span class="card-badge sbs">SBS</span>
+                    <p class="card-title">시골스타그램</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1N0EfC_kZFA_fyyOf3BljZCcuffcEbgfX/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2018.05.08</span>
+                    <span class="card-badge kbs">KBS1TV</span>
+                    <p class="card-title">6시내고향 3</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1-rQodJNK-3kblAs_AyyWo5aUyG_1F0vV/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2018.05.01</span>
+                    <span class="card-badge kbs">KBS1TV</span>
+                    <p class="card-title">6시내고향 2</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1k7b7uYSL08yUP62vSmpfLP9M-n3OqsTX/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2018.04.24</span>
+                    <span class="card-badge kbs">KBS1TV</span>
+                    <p class="card-title">6시내고향 1</p>
+                </div>
+            </article>
         </div>
-        <div>
-            <h2>[22.02.07] KBSTV 인간극장 : 길환씨, 낭도와 바람났네 - 1부</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1mbM6SqmfcVf3Vh770qs_lVz4guRnyRH2/preview"></iframe>
+
+        <!-- 2017 -->
+        <div class="year-label">2017</div>
+        <div class="video-grid">
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1-yKXGGvwshYj8cwyBYkl94x15Y__IPqA/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2017.11.29</span>
+                    <span class="card-badge mbc">MBC</span>
+                    <p class="card-title">생방송 오늘저녁</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1SfSp4QhrHtzy9zL91uzimzSXRNI3CeYH/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2017.06.23</span>
+                    <span class="card-badge ebs">EBS</span>
+                    <p class="card-title">한국기행</p>
+                </div>
+            </article>
         </div>
-        <div>
-            <h2>[21.10.02] 목포MBC : 어영차 바다야</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1HDxvZtuSO9wa2yjQ_2H9wLmKed2C2M-I/preview"></iframe>
+
+        <!-- 2016 -->
+        <div class="year-label">2016</div>
+        <div class="video-grid">
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1nzrjbnBMuNehT-0PuFC3SKMe0aKYN814/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2016.12.20</span>
+                    <span class="card-badge mbn">MBN</span>
+                    <p class="card-title">사노라면</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1txx7sCYesZfocDNyoKwA-k6gbGzgXWQB/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2016.10.26</span>
+                    <span class="card-badge sbs">SBS</span>
+                    <p class="card-title">생방송투데이</p>
+                </div>
+            </article>
+            <article class="card">
+                <div class="card-video" data-src="https://drive.google.com/file/d/1sJgrCXmu6uDQxrLbJ-2MOOzbsAlrYJjq/preview"></div>
+                <div class="card-info">
+                    <span class="card-date">2016.07.12</span>
+                    <span class="card-badge mbc">MBC</span>
+                    <p class="card-title">어영차 바다야</p>
+                </div>
+            </article>
         </div>
-        <div>
-            <h2>[21.04.16] MBN 생생정보마당</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1He4PNfWWzIHRG6yIfbJYOGOtKkKZ_BBQ/preview"></iframe>
-        </div>
-        <div>
-            <h2>[21.03.03] KBSTV 생생정보 : 부부별곡</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1VQiH6YXbBsc2_5kbrMX0gt8lKW2J-Zi3/preview"></iframe>
-        </div>
-        <div>
-            <h2>[20.10.24] MBC 어영차 바다야</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/14mp_XsXzh2ldkqeCaemMB-neHqaKHUI2/preview"></iframe>
-        </div>
-        <div>
-            <h2>[20.08.10] KBS2TV 생생정보 : 주병선 자랑 숨겨진 비경 낭도</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1IEW3-nKu0m0G2rKxk2vARDL5lmrKPars/preview"></iframe>
-        </div>
-        <div>
-            <h2>[19.07.30] KBS1TV 6시내고향 : 인생은행복해</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1RNU_YirQseie91rp1YbLKe-T_NCCMPM-/preview"></iframe>
-        </div>
-        <div>
-            <h2>[18.12.05] SBS : 시골스타그램</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1T-bvWTmhzKFiae70MQbpMaMFmGVLtdUr/preview"></iframe>
-        </div>
-        <div>
-            <h2>[18.05.08] KBS1TV : 6시내고향 3</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1N0EfC_kZFA_fyyOf3BljZCcuffcEbgfX/preview"></iframe>
-        </div>
-        <div>
-            <h2>[18.05.01] KBS1TV : 6시내고향 2</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1-rQodJNK-3kblAs_AyyWo5aUyG_1F0vV/preview"></iframe>
-        </div>
-        <div>
-            <h2>[18.04.24] KBS1TV : 6시내고향 1</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1k7b7uYSL08yUP62vSmpfLP9M-n3OqsTX/preview"></iframe>
-        </div>
-        <div>
-            <h2>[17.11.29] MBC : 생방송 오늘저녁</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1-yKXGGvwshYj8cwyBYkl94x15Y__IPqA/preview"></iframe>
-        </div>
-        <div>
-            <h2>[17.06.23] EBS : 한국기행</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1SfSp4QhrHtzy9zL91uzimzSXRNI3CeYH/preview"></iframe>
-        </div>
-        <div>
-            <h2>[16.12.20] MBN : 사노라면</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1nzrjbnBMuNehT-0PuFC3SKMe0aKYN814/preview"></iframe>
-        </div>
-        <div>
-            <h2>[16.10.26] SBS : 생방송투데이</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1txx7sCYesZfocDNyoKwA-k6gbGzgXWQB/preview"></iframe>
-        </div>
-        <div>
-            <h2>[16.07.12] MBC : 어영차 바다야</h2>
-            <iframe frameborder="0" src="https://drive.google.com/file/d/1sJgrCXmu6uDQxrLbJ-2MOOzbsAlrYJjq/preview"></iframe>
-        </div>
-    </div>
+
+    </main>
+
+    <footer class="footer">낭도에서의 생활</footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop" aria-label="맨 위로">&#8593;</button>
+
+    <script>
+        // Lazy load iframes with IntersectionObserver
+        (function () {
+            var cards = document.querySelectorAll('.card-video[data-src]');
+            if ('IntersectionObserver' in window) {
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            var el = entry.target;
+                            var iframe = document.createElement('iframe');
+                            iframe.src = el.getAttribute('data-src');
+                            iframe.setAttribute('allowfullscreen', '');
+                            iframe.setAttribute('webkitallowfullscreen', '');
+                            iframe.setAttribute('allow', 'autoplay; fullscreen *');
+                            el.classList.remove('pending');
+                            el.appendChild(iframe);
+                            observer.unobserve(el);
+                        }
+                    });
+                }, { rootMargin: '400px' });
+
+                cards.forEach(function (card) {
+                    card.classList.add('pending');
+                    observer.observe(card);
+                });
+            } else {
+                // Fallback: load all immediately
+                cards.forEach(function (card) {
+                    var iframe = document.createElement('iframe');
+                    iframe.src = card.getAttribute('data-src');
+                    iframe.setAttribute('allowfullscreen', '');
+                    iframe.setAttribute('webkitallowfullscreen', '');
+                    iframe.setAttribute('allow', 'autoplay; fullscreen *');
+                    card.appendChild(iframe);
+                });
+            }
+        })();
+
+        // Scroll to top button
+        (function () {
+            var btn = document.getElementById('scrollTop');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 600) {
+                    btn.classList.add('visible');
+                } else {
+                    btn.classList.remove('visible');
+                }
+            }, { passive: true });
+
+            btn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        })();
+    </script>
+
 </body>
 
 </html>
